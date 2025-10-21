@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+  <style>
+    body {
+      font-family: 'Prompt', sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+    }
+
+    /* Header */
+    header {
+      background: #1B3C73;
+      color: #FFD600;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: #FFD600;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+
+    /* Product grid */
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      padding: 40px;
+    }
+
+    .card {
+      width: 240px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      margin: 15px 0 5px 0;
+      color: #1B3C73;
+    }
+
+    .card p {
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      background: #FFD600;
+      color: #1B3C73;
+      padding: 8px 15px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s;
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+    .btn:hover {
+      background: #1B3C73;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>📱 MobileGear</h2>
+    <nav>
+      <a href="/">หน้าแรก</a>
+      <a href="/cart">ตะกร้าสินค้า</a>
+      <a href="/auth/login">เข้าสู่ระบบ</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2 style="text-align:center;margin-top:30px;color:#1B3C73;">เลือกสินค้าของคุณ</h2>
+    <div class="grid">
+      <% products.forEach(p => { %>
+        <div class="card">
+          <img src="<%= p.img %>" alt="<%= p.name %>">
+          <h3><%= p.name %></h3>
+          <p>฿<%= p.price %></p>
+
+          <!-- ✅ ปรับปุ่มลิงก์ไปหน้า detail -->
+          <a href="/products/<%= p.slug %>" class="btn">ดูรายละเอียด</a>
+
+        </div>
+      <% }) %>
+    </div>
+  </section>
+</body>
+</html>

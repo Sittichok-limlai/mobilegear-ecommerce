@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>แดชบอร์ด | MobileGear</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Prompt', sans-serif;
+      background: #f4f6fc;
+      color: #1B3C73;
+      display: flex;
+    }
+
+    .sidebar {
+      width: 250px;
+      height: 100vh;
+      background: #0A0F24;
+      color: #FFD600;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      position: fixed;
+      left: 0;
+      top: 0;
+    }
+    .sidebar h2 { text-align: center; margin-bottom: 30px; }
+    .sidebar a {
+      color: #FFD600;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      display: block;
+      transition: background 0.3s;
+    }
+    .sidebar a:hover { background: #1B3C73; color: white; }
+
+    .main {
+      margin-left: 270px;
+      padding: 30px;
+      width: 100%;
+    }
+
+    h1 { color: #1B3C73; }
+
+    .cards {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .card {
+      flex: 1;
+      min-width: 220px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      color: #0A0F24;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 1.5em;
+      color: #1B3C73;
+      font-weight: bold;
+    }
+
+    .chart {
+      margin-top: 40px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>📊 Admin Panel</h2>
+    <a href="/admin/dashboard" style="background:#1B3C73;color:white;">แดชบอร์ด</a>
+    <a href="/admin/products">จัดการสินค้า</a>
+    <a href="/admin/contract">Contract (ลูกค้า)</a>
+    <a href="/products">ดูหน้าร้าน</a>
+    <a href="/">กลับหน้าแรก</a>
+  </div>
+
+  <div class="main">
+    <h1>สรุปภาพรวมระบบ</h1>
+
+    <div class="cards">
+      <div class="card">
+        <h3>ยอดขายวันนี้</h3>
+        <p>฿5,420</p>
+      </div>
+      <div class="card">
+        <h3>จำนวนคำสั่งซื้อ</h3>
+        <p>18</p>
+      </div>
+      <div class="card">
+        <h3>จำนวนลูกค้า</h3>
+        <p>243</p>
+      </div>
+      <div class="card">
+        <h3>จำนวนสินค้า</h3>
+        <p>56</p>
+      </div>
+    </div>
+
+    <div class="chart">
+      <h3>📈 ยอดขายรายสัปดาห์ (จำลอง)</h3>
+      <p style="margin:30px 0; font-size:1.2em; color:#555;">
+        Week 1 ➜ 1200 | Week 2 ➜ 2500 | Week 3 ➜ 3100 | Week 4 ➜ 4200
+      </p>
+      <p><em>กราฟจำลองสำหรับ Mock-up</em></p>
+    </div>
+
+    <footer>© 2025 MobileGear Admin | Dashboard Overview</footer>
+  </div>
+</body>
+</html>

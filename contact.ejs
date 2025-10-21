@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ติดต่อเรา | MobileGear</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Prompt', sans-serif;
+      background: #f4f6fc;
+      color: #1B3C73;
+    }
+
+    /* Navbar */
+    header {
+      background: #0A0F24;
+      color: #FFD600;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      color: #FFD600;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      max-width: 800px;
+      margin: 80px auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 40px 60px;
+    }
+    h1 {
+      text-align: center;
+      color: #1B3C73;
+    }
+
+    p {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #555;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1em;
+      font-family: 'Prompt', sans-serif;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button {
+      background: #FFD600;
+      color: #0A0F24;
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      font-weight: bold;
+      font-size: 1em;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    button:hover {
+      background: #1B3C73;
+      color: white;
+    }
+
+    .contact-info {
+      margin-top: 40px;
+      text-align: center;
+      line-height: 1.8em;
+    }
+
+    footer {
+      background: #0A0F24;
+      color: #FFD600;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 60px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>📱 MobileGear</h2>
+    <nav>
+      <a href="/">หน้าแรก</a>
+      <a href="/products">สินค้า</a>
+      <a href="/contact">ติดต่อ</a>
+      <a href="/auth/login">เข้าสู่ระบบ</a>
+    </nav>
+  </header>
+
+  <section class="contact-section">
+    <h1>ติดต่อเรา</h1>
+    <p>มีคำถามหรือข้อสงสัย? ส่งข้อความถึงเราได้เลย ทีมงาน MobileGear พร้อมช่วยเหลือคุณ!</p>
+
+    <form method="POST" action="/contact">
+      <input type="text" name="name" placeholder="ชื่อของคุณ" required>
+      <input type="email" name="email" placeholder="อีเมลของคุณ" required>
+      <textarea name="message" placeholder="ข้อความของคุณ..." required></textarea>
+      <button type="submit">ส่งข้อความ</button>
+    </form>
+
+    <div class="contact-info">
+      <h3>📍 ที่อยู่ร้าน</h3>
+      <p>123 ถนนสุขุมวิท แขวงบางนา เขตบางนา กรุงเทพฯ 10260</p>
+      <p>📞 โทร: 02-345-6789 | 📱 มือถือ: 081-234-5678</p>
+      <p>✉️ อีเมล: support@mobilegear.com</p>
+      <p>⏰ เปิดบริการทุกวัน 09:00 - 21:00 น.</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 MobileGear | Node.js + MySQL | ติดต่อเราได้ทุกวัน 💛
+  </footer>
+</body>
+</html>

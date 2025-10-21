@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ชำระเงิน | MobileGear</title>
+  <style>
+    body{font-family:'Prompt',sans-serif;background:#f4f6fc;margin:0;}
+    header{background:#0A0F24;color:#FFD600;padding:15px 40px;display:flex;justify-content:space-between;}
+    form{width:60%;margin:40px auto;background:white;padding:30px;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.1);}
+    label{display:block;margin-top:15px;font-weight:bold;color:#1B3C73;}
+    input,select{width:100%;padding:10px;margin-top:5px;border-radius:6px;border:1px solid #ccc;}
+    .btn{display:block;width:100%;margin-top:25px;background:#FFD600;color:#1B3C73;font-weight:bold;padding:12px;border:none;border-radius:8px;cursor:pointer;}
+    .btn:hover{background:#1B3C73;color:white;}
+
+    /* ✅ สไตล์ preview + ปุ่มลบ */
+    .slip-preview {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-top:10px;
+      background:#f4f4f4;
+      padding:8px 10px;
+      border-radius:8px;
+      display:none;
+    }
+
+    .remove-slip {
+      color:red;
+      font-size:20px;
+      cursor:pointer;
+      padding:0 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>📱 MobileGear</h2>
+    <a href="/cart" style="color:#FFD600;text-decoration:none;">กลับตะกร้า</a>
+  </header>
+
+  <form action="/payment-success" method="POST" enctype="multipart/form-data">
+    <h2 style="text-align:center;color:#1B3C73;">ข้อมูลการจัดส่ง</h2>
+
+    <label>ชื่อ-นามสกุล</label>
+    <input type="text" name="fullname" required>
+
+    <label>ที่อยู่จัดส่ง</label>
+    <input type="text" name="address" required>
+
+    <label>เบอร์โทรศัพท์</label>
+    <input type="tel" name="phone" required>
+
+    <label>วิธีชำระเงิน</label>
+    <select name="payment_method">
+      <option>โอนผ่านธนาคาร</option>
+      <option>ชำระผ่านบัตรเครดิต</option>
+      <option>QR Code</option>
+      <option>เก็บเงินปลายทาง</option>
+    </select>
+
+    <!-- ✅ เพิ่ม Input File -->
+    <label>อัปโหลดหลักฐานการชำระเงิน (สลิป)</label>
+    <input type="file" name="slip" id="slipInput" accept="image/*" required>
+
+    <!-- ✅ Preview box + ปุ่มลบ -->
+    <div class="slip-preview" id="slipPreview">
+      <span id="slipFilename"></span>
+      <span class="remove-slip" id="removeSlip">❌</span>
+    </div>
+
+    <button type="submit" class="btn">ยืนยันการสั่งซื้อ</button>
+  </form>
+
+  <script>
+    const slipInput = document.getElementById('slipInput');
+    const slipPreview = document.getElementById('slipPreview');
+    const slipFilename = document.getElementById('slipFilename');
+    const removeSlip = document.getElementById('removeSlip');
+
+    slipInput.addEventListener('change', function() {
+      if (this.files.length > 0) {
+        slipFilename.textContent = this.files[0].name;
+        slipPreview.style.display = 'flex';
+      }
+    });
+
+    removeSlip.addEventListener('click', function() {
+      slipInput.value = "";              // ✅ รีเซ็ตไฟล์
+      slipPreview.style.display = 'none'; // ✅ ซ่อน preview
+    });
+  </script>
+</body>
+</html>

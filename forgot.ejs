@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ลืมรหัสผ่าน | MobileGear</title>
+  <style>
+    body {
+      font-family: 'Prompt', sans-serif;
+      background: linear-gradient(120deg, #0A0F24, #1B3C73);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 30px 40px;
+      width: 380px;
+      text-align: center;
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+    }
+    h2 { color: #FFD600; margin-bottom: 20px; }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    .btn {
+      width: 95%;
+      background: #FFD600;
+      color: #1B3C73;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: white;
+      color: #1B3C73;
+    }
+
+    .link {
+      color: #FFD600;
+      margin-top: 15px;
+      display: block;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🔒 ลืมรหัสผ่าน</h2>
+
+    <% if (success) { %>
+      <p style="color: #7CFC00;"><%= success %></p>
+    <% } %>
+
+    <form method="POST" action="/auth/forgot">
+      <input type="email" name="email" placeholder="กรอกอีเมลของคุณ" required>
+      <button class="btn" type="submit">ส่งลิงก์รีเซ็ต</button>
+      <a class="link" href="/auth/login">กลับไปหน้าเข้าสู่ระบบ</a>
+    </form>
+  </div>
+</body>
+</html>

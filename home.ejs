@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>หน้าแรก | MobileGear</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Prompt', sans-serif;
+      background: #f4f6fc;
+      color: #1B3C73;
+    }
+
+    /* Navbar */
+    header {
+      background: #0A0F24;
+      color: #FFD600;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      color: #FFD600;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(90deg, #0A0F24 40%, #1B3C73 100%);
+      color: white;
+      text-align: center;
+      padding: 120px 20px;
+    }
+    .hero h1 {
+      font-size: 2.8em;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+    .hero p {
+      font-size: 1.2em;
+      color: #e5e5e5;
+      margin-bottom: 25px;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      background: #FFD600;
+      color: #0A0F24;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+    .btn:hover {
+      background: #fff;
+      color: #1B3C73;
+      transform: scale(1.05);
+    }
+
+    /* Categories Section */
+    .categories {
+      padding: 60px 30px;
+      text-align: center;
+    }
+    .categories h2 {
+      color: #1B3C73;
+      margin-bottom: 30px;
+    }
+    .grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      width: 250px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px 12px 0 0;
+    }
+    .card h3 {
+      padding: 15px;
+      color: #1B3C73;
+      margin: 0;
+    }
+
+    /* Promotion Section */
+    .promo {
+      background: #1B3C73;
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+      margin-top: 50px;
+    }
+    .promo h2 {
+      color: #FFD600;
+    }
+    .promo a {
+      margin-top: 15px;
+      display: inline-block;
+      background: #FFD600;
+      color: #1B3C73;
+      padding: 10px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .promo a:hover {
+      background: white;
+    }
+
+    /* Footer */
+    footer {
+      background: #0A0F24;
+      color: #FFD600;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h2>📱 MobileGear</h2>
+    <nav>
+      <a href="/">หน้าแรก</a>
+      <a href="/products">สินค้า</a>
+      <a href="/contact">ติดต่อ</a>
+      <a href="/auth/login">เข้าสู่ระบบ</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>อุปกรณ์เสริมมือถือคุณภาพสูง</h1>
+    <p>เคส สายชาร์จ หูฟัง และอีกมากมายในราคาสุดคุ้ม</p>
+    <a href="/products" class="btn">ดูสินค้าเลย</a>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories">
+    <h2>หมวดหมู่ยอดนิยม</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="/images/case.jpg" alt="เคสมือถือ">
+        <h3>เคสมือถือ</h3>
+      </div>
+      <div class="card">
+        <img src="/images/charger.jpg" alt="สายชาร์จ">
+        <h3>สายชาร์จ & Adapter</h3>
+      </div>
+      <div class="card">
+        <img src="/images/earphone.jpg" alt="หูฟัง">
+        <h3>หูฟังไร้สาย</h3>
+      </div>
+      <div class="card">
+        <img src="/images/powerbank.jpg" alt="Power Bank">
+        <h3>แบตสำรอง</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promotion Section -->
+  <section class="promo">
+    <h2>🔥 โปรโมชั่นพิเศษ! 🔥</h2>
+    <p>สมัครสมาชิกวันนี้ รับส่วนลด 10% สำหรับการสั่งซื้อครั้งแรก!</p>
+    <a href="/auth/login">สมัครเลย</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 MobileGear | Node.js + MySQL | Design by You 💙
+  </footer>
+</body>
+</html>

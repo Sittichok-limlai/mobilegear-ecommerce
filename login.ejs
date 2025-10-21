@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>เข้าสู่ระบบ | MobileGear</title>
+  <style>
+    body {
+      font-family: 'Prompt', sans-serif;
+      background: linear-gradient(120deg, #0A0F24, #1B3C73);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 30px 40px;
+      width: 380px;
+      text-align: center;
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+    }
+    h2 { color: #FFD600; margin-bottom: 20px; }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    .btn {
+      width: 95%;
+      background: #FFD600;
+      color: #1B3C73;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: white;
+      color: #1B3C73;
+    }
+
+    .link {
+      color: #FFD600;
+      margin-top: 15px;
+      display: block;
+      text-decoration: none;
+    }
+
+    .msg {
+      margin-top: 10px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>📱 MobileGear</h2>
+
+    <% if (error) { %>
+      <div class="msg" style="color: #ff8080;"><%= error %></div>
+    <% } %>
+    <% if (success) { %>
+      <div class="msg" style="color: #7CFC00;"><%= success %></div>
+    <% } %>
+
+    <form method="POST" action="/auth/login">
+      <h3>เข้าสู่ระบบ</h3>
+      <input type="text" name="username" placeholder="ชื่อผู้ใช้" required>
+      <input type="password" name="password" placeholder="รหัสผ่าน" required>
+      <button type="submit" class="btn">เข้าสู่ระบบ</button>
+
+      <a href="/auth/register" class="link">ยังไม่มีบัญชี? สมัครสมาชิก</a>
+      <a href="/auth/forgot" class="link">ลืมรหัสผ่าน?</a>
+    </form>
+  </div>
+</body>
+</html>

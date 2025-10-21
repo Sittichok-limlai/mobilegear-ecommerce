@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>จัดการสินค้า | MobileGear</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Prompt', sans-serif;
+      background: #f4f6fc;
+      color: #1B3C73;
+      display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      height: 100vh;
+      background: #0A0F24;
+      color: #FFD600;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      position: fixed;
+      left: 0;
+      top: 0;
+    }
+    .sidebar h2 { text-align: center; margin-bottom: 30px; }
+    .sidebar a {
+      color: #FFD600;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      display: block;
+      transition: background 0.3s;
+    }
+    .sidebar a:hover { background: #1B3C73; color: white; }
+
+    /* Main section */
+    .main {
+      margin-left: 270px;
+      padding: 30px;
+      width: 100%;
+    }
+
+    h1 { color: #1B3C73; }
+
+    /* Add button */
+    .btn-add {
+      background: #FFD600;
+      color: #1B3C73;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 20px;
+      transition: background 0.3s;
+    }
+    .btn-add:hover { background: #1B3C73; color: #FFD600; }
+
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th { background: #1B3C73; color: #FFD600; }
+    tr:hover { background-color: #f9f9f9; }
+
+    td img {
+      width: 70px;
+      height: 70px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 5px;
+      padding: 6px 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn-edit { background: #1B3C73; color: white; }
+    .btn-delete { background: #E74C3C; color: white; }
+    .btn:hover { opacity: 0.8; }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #888;
+    }
+  </style>
+
+  <script>
+    function addProduct() {
+      alert("🟢 เพิ่มสินค้าจำลองแล้ว (Mock-up)");
+    }
+    function editProduct(name) {
+      alert("✏️ แก้ไขสินค้า: " + name);
+    }
+    function deleteProduct(name) {
+      if (confirm("⚠️ ต้องการลบ " + name + " หรือไม่?")) {
+        alert("🗑️ ลบสินค้าสำเร็จ (Mock-up)");
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>📊 Admin Panel</h2>
+    <a href="/admin/dashboard">แดชบอร์ด</a>
+    <a href="/admin/products" style="background:#1B3C73;color:white;">จัดการสินค้า</a>
+    <a href="/admin/contract">Contract (ลูกค้า)</a>
+    <a href="/products">ดูหน้าร้าน</a>
+    <a href="/">กลับหน้าแรก</a>
+  </div>
+
+  <div class="main">
+    <h1>จัดการสินค้า</h1>
+    <button class="btn-add" onclick="addProduct()">➕ เพิ่มสินค้า</button>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ภาพ</th>
+          <th>ชื่อสินค้า</th>
+          <th>ราคา (฿)</th>
+          <th>สต็อก</th>
+          <th>จัดการ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% const products = [
+          {id: 1, name: "เคสกันกระแทก", price: 199, stock: 40, img: "/images/case.jpg"},
+          {id: 2, name: "สายชาร์จ Type-C", price: 249, stock: 60, img: "/images/charger.jpg"},
+          {id: 3, name: "หูฟังไร้สาย", price: 499, stock: 30, img: "/images/earphone.jpg"},
+          {id: 4, name: "Power Bank 10000mAh", price: 799, stock: 20, img: "/images/powerbank.jpg"}
+        ]; %>
+
+        <% products.forEach(p => { %>
+          <tr>
+            <td><img src="<%= p.img %>" alt="<%= p.name %>"></td>
+            <td><%= p.name %></td>
+            <td><%= p.price %></td>
+            <td><%= p.stock %></td>
+            <td>
+              <button class="btn btn-edit" onclick="editProduct('<%= p.name %>')">แก้ไข</button>
+              <button class="btn btn-delete" onclick="deleteProduct('<%= p.name %>')">ลบ</button>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+    <footer>
+      © 2025 MobileGear Admin | Mock-up Management
+    </footer>
+  </div>
+</body>
+</html>
